@@ -18,6 +18,21 @@
       fsType = "ext4";
     };
 
+  fileSystems."/mnt/plex" =
+    { device = "/dev/disk/by-uuid/4adc7153-bf40-467b-a558-a63e6c7be138";
+      fsType = "ext4";
+    };
+
+  fileSystems."/mnt/storage" = 
+    { device = "/dev/disk/by-uuid/8eac4a5b-3498-4edc-a936-5be3f3c76a64";
+      fsType = "ext4";
+    };
+
+  fileSystems."/mnt/games" = 
+    { device = "/dev/disk/by-uuid/608d32d1-2162-44bc-b56b-91639cdcf4b3";
+      fsType = "ext4";
+    };
+
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/FE8B-234E";
       fsType = "vfat";
