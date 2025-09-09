@@ -9,8 +9,15 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "bayle";
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "bayle";
+    networkmanager.enable = true;
+    nat.enable = true; # Allow plex through firewall.
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [ 32400 ];
+    };
+  };
 
   nixpkgs.config.allowUnfree = true;
 
