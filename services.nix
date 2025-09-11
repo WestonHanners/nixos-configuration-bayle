@@ -40,6 +40,7 @@
   services.plex = {
     enable = true;
     openFirewall = true;
+    user = "weston";
     dataDir = "/mnt/storage/plexdata";
   };
 
