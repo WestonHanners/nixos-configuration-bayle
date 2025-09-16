@@ -44,26 +44,27 @@
     dataDir = "/mnt/storage/plexdata";
   };
 
+  services.samba-wsdd = {
+    enable = true;
+    openFirewall = true;
+  };
+
   services.samba = {
-  enable = true;
-  securityType = "user";
-  openFirewall = true;
-  settings = {
+    enable = true;
+    openFirewall = true;
+    settings = {
     global = {
       "workgroup" = "WORKGROUP";
       "server string" = "bayle";
       "netbios name" = "bayle";
       "security" = "user";
-      "guest account" = "nobody";
-      "map to guest" = "bad user";
+      "guest account" = "weston";
     };
-    "public" = {
+    "plex" = {
       "path" = "/mnt/plex/";
       "browseable" = "yes";
       "read only" = "no";
       "guest ok" = "yes";
-      "create mask" = "0644";
-      "directory mask" = "0755";
       "force user" = "weston";
       "force group" = "users";
     };
