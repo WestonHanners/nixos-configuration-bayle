@@ -44,32 +44,30 @@
     dataDir = "/mnt/storage/plexdata";
   };
 
-  services.samba-wsdd = {
-    enable = true;
-    openFirewall = true;
-  };
-
   services.samba = {
     enable = true;
     openFirewall = true;
     settings = {
-    global = {
-      "workgroup" = "WORKGROUP";
-      "server string" = "bayle";
-      "netbios name" = "bayle";
-      "security" = "user";
-      "guest account" = "weston";
-    };
-    "plex" = {
-      "path" = "/mnt/plex/";
-      "browseable" = "yes";
-      "read only" = "no";
-      "guest ok" = "yes";
-      "force user" = "weston";
-      "force group" = "users";
+      global = {
+        "workgroup" = "WORKGROUP";
+        "server string" = "bayle";
+        "netbios name" = "bayle";
+        "security" = "user";
+        "guest account" = "weston";
+      };
+      Media = {
+        path = "/mnt/plex";
+        comment = "Plex Media";
+        browseable = "yes";
+        "read only" = "no";
+        "guest ok" = "no";
+        "create mask" = "0644";
+        "directory mask" = "0755";
+        "force user" = "weston";
+        "force group" = "users";
+      };
     };
   };
-};
 
   services = {
     desktopManager.plasma6.enable = true;
