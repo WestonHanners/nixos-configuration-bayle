@@ -19,6 +19,8 @@
     kdePackages.partitionmanager
     wayland-utils
     wl-clipboard
+    clang
+    superfile
     ghostty
     neovim
     rsync
