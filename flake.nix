@@ -3,16 +3,21 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
-    catppuccin.url = "github:catppuccin/nix/release-25.05";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
+    
     quickshell = {
-      url = "github:outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "home-manager";
+      url = "github:quickshell-mirror/quickshell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    qml-niri = {
+      url = "github:imiric/qml-niri/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.quickshell.follows = "quickshell";
     };
 
     noctalia = {
@@ -21,23 +26,21 @@
     };
   };
 
-  outputs = { self, nixpkgs, catppuccin, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
     nixosConfigurations.bayle = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit self inputs; };
-        modules = [ 
-          catppuccin.nixosModules.catppuccin
-          ./configuration.nix 
+      specialArgs = { inherit self inputs; };
+      modules = [ 
+        ./configuration.nix 
 
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.weston.imports = [
-              catppuccin.homeModules.catppuccin
-              ./home.nix
-            ];
-          }
-        ];
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.weston.imports = [
+            ./home.nix
+          ];
+        }
+      ];
     };
   };
 }

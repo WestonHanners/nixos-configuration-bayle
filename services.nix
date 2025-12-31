@@ -39,14 +39,8 @@
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
-    settings = {
-      Wayland = {
-        EnableHiDPI = true;
-      };
-      General = {
-        GreeterEnvironment = "QT_SCREEN_SCALE_FACTORS=2,QT_FONT_DPI=192";
-      };
-    };
+    theme = "sddm-astronaut-theme";
+    extraPackages = [ pkgs.sddm-astronaut ];
   };
   
   services.syncthing = {

@@ -8,10 +8,10 @@
     hostName = "bayle";
     networkmanager.enable = true;
     nat.enable = true; # Allow plex through firewall.
-    firewall = {
-      enable = true;
-      allowedTCPPorts = [ 32400 ];
-    };
+        firewall = {
+        enable = true;
+        allowedTCPPorts = [ 32400 ];
+      };
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -47,7 +47,7 @@
     package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 
-  # Support AppImages
+# Support AppImages
   boot.binfmt.registrations.appimage = {
     wrapInterpreterInShell = false;
     interpreter = "${pkgs.appimage-run}/bin/appimage-run";

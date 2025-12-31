@@ -1,13 +1,17 @@
-{ config, pkgs, catppuccin, inputs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
     inputs.noctalia.packages.${stdenv.hostPlatform.system}.default
+    inputs.quickshell.packages.${stdenv.hostPlatform.system}.default
+    inputs.qml-niri.packages.${stdenv.hostPlatform.system}.default
+    kdePackages.breeze
     kdePackages.discover
     kdePackages.dolphin
     kdePackages.isoimagewriter
     kdePackages.partitionmanager
     kdePackages.plasma-workspace
+    sddm-astronaut
     wayland-utils
     wl-clipboard
     pkgs.mpv
@@ -19,20 +23,12 @@
     vulkan-tools
     snixembed
   ];
-
-  # Catppuccin
-  catppuccin = {
-    enable = true;
-    flavor = "mocha";
-    accent = "blue";
-  };
-
+  
   xdg.portal = {
     enable = true;
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-gnome
-      pkgs.kdePackages.xdg-desktop-portal-kde
     ];
     config = {
       common.default = ["gtk"];
@@ -51,27 +47,18 @@
     enable = true;
   };
 
-  # # Fix for steam missing mouse cursors.
-  # programs.steam.package = pkgs.steam.override {
-  #   extraPkgs = p: [
-  #     p.kdePackages.breeze
-  #   ];
-  # };
+  # Fix for steam missing mouse cursors.
+  programs.steam.package = pkgs.steam.override {
+    extraPkgs = p: [
+      p.kdePackages.breeze
+    ];
+  };
 
   programs.gamescope = {
     enable = true;
 #    capSysNice = true;
   };
-  
-  programs.git = {
-    enable = true;
-    config = {
-      user.name = "Weston Hanners";
-      user.email = "weston@hanners.us";
-      init.defaultBranch = "main";
-    };    
-  };
-
+   
   programs.tmux = {
     enable = true;
     extraConfig = 

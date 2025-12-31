@@ -10,7 +10,10 @@
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  
+  nix.settings.download-buffer-size = 524288000;
+
+  security.pam.services.swaylock = {};
+
   users.motd = "CURSE YOUUU BAYLEEEEEE!";
 
   users.users.weston = {
