@@ -4,4 +4,4 @@
 cp /etc/nixos/*.nix .
 
 # Back up the flake.lock.
-cp /etc/nixos/flake.lock
+cp /etc/nixos/flake.lock .

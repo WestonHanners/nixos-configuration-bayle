@@ -32,6 +32,23 @@
     };
   };
 
+  services.desktopManager = {
+    plasma6.enable = true;
+  };
+
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    settings = {
+      Wayland = {
+        EnableHiDPI = true;
+      };
+      General = {
+        GreeterEnvironment = "QT_SCREEN_SCALE_FACTORS=2,QT_FONT_DPI=192";
+      };
+    };
+  };
+  
   services.syncthing = {
     enable = true;
     user = "weston";
@@ -44,12 +61,6 @@
     openFirewall = true;
     user = "weston";
     dataDir = "/mnt/games/plexdata";
-  };
-
-  services = {
-    desktopManager.plasma6.enable = true;
-    displayManager.sddm.enable = true;
-    displayManager.sddm.wayland.enable = true;
   };
 
   services.pipewire = {

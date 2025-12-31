@@ -16,9 +16,11 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  time.timeZone = "America/Indiana/Indianapolis";
-  time.hardwareClockInLocalTime = true;
-  
+  time = {
+    timeZone = "America/Indiana/Indianapolis";
+    hardwareClockInLocalTime = true;
+  }
+
   i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {

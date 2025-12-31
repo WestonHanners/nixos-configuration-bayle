@@ -8,14 +8,5 @@
     isNormalUser = true;
     description = "Weston";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      obsidian
-      plexamp
-      superfile
-      nerd-fonts.iosevka
-      calibre
-      protonup-qt
-      element-desktop
-    ];
   };
 }

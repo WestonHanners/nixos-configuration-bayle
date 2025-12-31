@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, catppuccin, inputs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -11,19 +11,34 @@
     wayland-utils
     wl-clipboard
     pkgs.mpv
+    ghostty
     pkgs.openrgb
     clang
-    superfile
-    ghostty
-    protontricks
-    rsync
     pciutils
     xwayland-satellite
     vulkan-tools
     snixembed
-];
+  ];
 
-  xdg.portal.enable = true;
+  # Catppuccin
+  catppuccin = {
+    enable = true;
+    flavor = "mocha";
+    accent = "blue";
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-gnome
+      pkgs.kdePackages.xdg-desktop-portal-kde
+    ];
+    config = {
+      common.default = ["gtk"];
+    };
+  };
+
   programs.niri.enable = true;
   programs.xfconf.enable = true;
 
@@ -32,22 +47,22 @@
     defaultEditor = true;
   };
 
-  # Fix for steam missing mouse cursors.
-  programs.steam.package = pkgs.steam.override {
-    extraPkgs = p: [
-      p.kdePackages.breeze
-    ];
+  programs.steam = {
+    enable = true;
   };
+
+  # # Fix for steam missing mouse cursors.
+  # programs.steam.package = pkgs.steam.override {
+  #   extraPkgs = p: [
+  #     p.kdePackages.breeze
+  #   ];
+  # };
 
   programs.gamescope = {
     enable = true;
 #    capSysNice = true;
   };
   
-  programs.steam = {
-    enable = true;
-  };
-
   programs.git = {
     enable = true;
     config = {
