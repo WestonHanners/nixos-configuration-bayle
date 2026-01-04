@@ -36,9 +36,9 @@
   };
 
   home.packages = with pkgs; [
-      # kdePackages.kirigami.unwrapped
-      # kdePackages.qtdeclarative
-      # kdePackages.sonnet
+      kdePackages.kirigami.unwrapped
+      kdePackages.qtdeclarative
+      kdePackages.sonnet
       swayidle
       alacritty
       fuzzel
