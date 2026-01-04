@@ -30,16 +30,19 @@
       inputs.quickshell.follows = "quickshell";
     };
 
+    silkos.url = "git+https://codeberg.org/Silk/silkos?ref=main";
+    
     # noctalia = {
     #   url = "github:noctalia-dev/noctalia-shell";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
   };
 
-  outputs = inputs@{ self, nixpkgs, stylix, home-manager, ... }: {
+  outputs = inputs@{ self, nixpkgs, silkos, stylix, home-manager, ... }: {
     nixosConfigurations.bayle = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit self inputs; };
       modules = [
+        { nixpkgs.overlays = [ silkos.overlays.default ]; }
         stylix.nixosModules.stylix
         ./nix/configuration.nix 
         home-manager.nixosModules.home-manager
