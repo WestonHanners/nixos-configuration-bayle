@@ -23,6 +23,8 @@
       (pkgs.sddm-astronaut.override { embeddedTheme = "jake_the_dog"; })
   ];
 
+  environment.localBinInPath = true;
+
   xdg.portal = {
     enable = true;
     extraPortals = [
@@ -40,17 +42,6 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
-  };
-
-  programs.steam = {
-    enable = true;
-  };
-
-# Fix for steam missing mouse cursors.
-  programs.steam.package = pkgs.steam.override {
-    extraPkgs = p: [
-      p.kdePackages.breeze
-    ];
   };
 
   programs.zsh.enable = true;
