@@ -20,7 +20,7 @@
       xwayland-satellite
       vulkan-tools
       snixembed
-      (pkgs.sddm-astronaut.override { embeddedTheme = "jake_the_dog"; })
+      (pkgs.sddm-astronaut.override { embeddedTheme = "black_hole"; })
   ];
 
   environment.localBinInPath = true;
@@ -29,7 +29,7 @@
     enable = true;
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
-        pkgs.xdg-desktop-portal-gnome
+      pkgs.xdg-desktop-portal-gnome
     ];
     config = {
       common.default = ["gtk"];

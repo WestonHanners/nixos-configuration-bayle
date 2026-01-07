@@ -4,6 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./nvidia.nix
       ./system.nix
       ./services.nix
       ./programs.nix

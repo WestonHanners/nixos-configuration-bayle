@@ -19,7 +19,7 @@
   services.polkit-gnome.enable = true; # polkit
   programs.swaylock.package = pkgs.swaylock-effects;
   programs.swaylock.enable = true;
-
+  programs.waybar.enable = true;
   # programs.dankMaterialShell.enable = true;
 
   programs.git = {
