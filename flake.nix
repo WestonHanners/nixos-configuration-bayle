@@ -25,12 +25,14 @@
       inputs.quickshell.follows = "quickshell";
     };
 
+    dolphin-overlay.url = "github:rumboon/dolphin-overlay";
   };
 
-  outputs = inputs@{ self, nixpkgs, stylix, home-manager, ... }: {
+  outputs = inputs@{ self, nixpkgs, dolphin-overlay, stylix, home-manager, ... }: {
     nixosConfigurations.bayle = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit self inputs; };
       modules = [
+      { nixpkgs.overlays = [dolphin-overlay.overlays.default ]; }
       stylix.nixosModules.stylix
       ./nix/configuration.nix 
       home-manager.nixosModules.home-manager {
