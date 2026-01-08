@@ -1,4 +1,9 @@
-{ config, inputs, pkgs, ... }:
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
 
 {
   home = {
@@ -27,7 +32,7 @@
       user.name = "Weston Hanners";
       user.email = "weston@hanners.us";
       init.defaultBranch = "main";
-    };    
+    };
   };
 
   stylix.targets = {
@@ -35,46 +40,41 @@
   };
 
   home.packages = with pkgs; [
-      kdePackages.kirigami.unwrapped
-      kdePackages.qtdeclarative
-      kdePackages.sonnet
-      pkgs.zed-editor
-      swayidle
-      alacritty
-      fuzzel
-      swaybg
-      wget
-      xdotool
-      blender
-      godot
-      krita
-      unzip
-      ripgrep
-      xxd
-      tmux
-      fastfetch
-      yad
-      btop
-      xwininfo
-      ranger
-      obsidian
-      plexamp
-      nerd-fonts.iosevka
-      calibre
-      protonup-qt
-      superfile
-      protontricks
-      rsync
-      stow
-      yazi
-      element-desktop
-      wiremix
-      ];
-
-    # home.sessionVariables.QML2_IMPORT_PATH = pkgs.lib.concatStringsSep ":" [
-    #   "${pkgs.kdePackages.qtdeclarative}/lib/qt-6/qml"
-    #   "${pkgs.kdePackages.kirigami.unwrapped}/lib/qt-6/qml"
-    # ];
-
+    kdePackages.kirigami.unwrapped
+    kdePackages.qtdeclarative
+    kdePackages.sonnet
+    pkgs.zed-editor
+    swayidle
+    alacritty
+    fuzzel
+    swaybg
+    wget
+    xdotool
+    blender
+    godot
+    krita
+    unzip
+    ripgrep
+    xxd
+    tmux
+    fastfetch
+    yad
+    btop
+    xwininfo
+    ranger
+    obsidian
+    plexamp
+    nerd-fonts.iosevka
+    calibre
+    protonup-qt
+    superfile
+    protontricks
+    rsync
+    stow
+    yazi
+    element-desktop
+    wiremix
+    vesktop
+  ];
   home.stateVersion = "25.11";
 }
