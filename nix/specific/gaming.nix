@@ -1,11 +1,5 @@
-{
-  pkgs,
-  ...
-}:
+{ pkgs, ... }:
 
-let
-  gamescope-git = pkgs.callPackage ./gamescope.nix { };
-in
 {
   environment.systemPackages = with pkgs; [
     protonup-qt
@@ -38,20 +32,13 @@ in
   programs = {
     gamescope = {
       enable = true;
-      package = gamescope-git;
       capSysNice = true;
-   };
+    };
     gamemode.enable = true;
     steam = {
       enable = true;
       localNetworkGameTransfers.openFirewall = true;
       protontricks.enable = true;
-      gamescopeSession = {
-        enable = true;
-        steamArgs = [
-          "-pipewire-dmabuf"
-        ];
-      };
       package = pkgs.steam.override {
         extraPkgs = p: [
           p.kdePackages.breeze

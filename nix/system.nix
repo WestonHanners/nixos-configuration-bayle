@@ -4,17 +4,28 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  environment.localBinInPath = true;
+
+  users.motd = "CURSE YOUUU BAYLEEEEEE!";
+  users.users.weston = {
+    shell = pkgs.zsh;
+    isNormalUser = true;
+    description = "Weston";
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
+  };
+
   networking = {
     hostName = "bayle";
     networkmanager.enable = true;
     nat.enable = true; # Allow plex through firewall.
-        firewall = {
-        enable = true;
-        allowedTCPPorts = [ 32400 ];
-      };
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [ 32400 ];
+    };
   };
-
-  nixpkgs.config.allowUnfree = true;
 
   time = {
     timeZone = "America/Indiana/Indianapolis";
@@ -46,7 +57,7 @@
     package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 
-# Support AppImages
+  # Support AppImages
   boot.binfmt.registrations.appimage = {
     wrapInterpreterInShell = false;
     interpreter = "${pkgs.appimage-run}/bin/appimage-run";
