@@ -1,5 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
+let
+  unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system};
+in
 {
   environment.systemPackages = with pkgs; [
     protonup-qt
@@ -28,11 +31,12 @@
   };
 
   services.system76-scheduler.enable = true;
-
+  
   programs = {
     gamescope = {
       enable = true;
-      capSysNice = true;
+      package = unstable.gamescope;
+      # capSysNice = true;
     };
     gamemode.enable = true;
     steam = {

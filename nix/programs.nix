@@ -16,6 +16,7 @@
     wl-clipboard
     pkgs.mpv
     ghostty
+    killall
     pkgs.openrgb
     clang
     pciutils
@@ -80,6 +81,8 @@
 
   services.displayManager = {
     defaultSession = "niri";
+    autoLogin.enable = true;
+    autoLogin.user = "weston";
   };
 
   services.displayManager.sddm = {

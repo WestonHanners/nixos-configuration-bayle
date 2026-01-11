@@ -1,6 +1,7 @@
 {
   config,
   inputs,
+  scopebuddy,
   pkgs,
   ...
 }:
@@ -40,6 +41,7 @@
   };
 
   home.packages = with pkgs; [
+    inputs.scopebuddy.packages.${pkgs.system}.default
     kdePackages.kirigami.unwrapped
     kdePackages.qtdeclarative
     kdePackages.sonnet
