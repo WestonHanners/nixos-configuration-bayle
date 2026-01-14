@@ -8,6 +8,7 @@ in
     protonup-qt
     cabextract # Needed for ^
     joystickwake
+    gpu-screen-recorder
     wineWowPackages.full
     winetricks
     faudio
@@ -31,7 +32,8 @@ in
   };
 
   services.system76-scheduler.enable = true;
-  
+  programs.gpu-screen-recorder.enable = true;
+      
   programs = {
     gamescope = {
       enable = true;

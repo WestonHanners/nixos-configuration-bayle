@@ -44,6 +44,7 @@
     kdePackages.qtdeclarative
     kdePackages.sonnet
     pkgs.zed-editor
+    pkgs.libnotify
     swayidle
     alacritty
     fuzzel

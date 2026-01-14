@@ -20,6 +20,8 @@
     pkgs.openrgb
     clang
     pciutils
+    pcmanfm
+    helix
     xwayland-satellite
     vulkan-tools
     snixembed
