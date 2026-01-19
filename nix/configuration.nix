@@ -14,6 +14,7 @@
     ./specific/gaming.nix
     ./specific/obs.nix
     ./specific/stylix.nix
+    ./specific/gamescope.nix
   ];
 
   nix.settings.experimental-features = [

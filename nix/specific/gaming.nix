@@ -1,4 +1,8 @@
-{ pkgs, inputs, ... }:
+{
+  pkgs,
+  inputs,
+  ...
+}:
 
 let
   unstable = inputs.nixpkgs-unstable.legacyPackages.${pkgs.system};
@@ -35,9 +39,6 @@ in
   programs.gpu-screen-recorder.enable = true;
       
   programs = {
-    gamescope = {
-      enable = true;
-    };
     gamemode.enable = true;
     steam = {
       enable = true;
