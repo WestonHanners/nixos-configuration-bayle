@@ -121,6 +121,20 @@
     configDir = "/home/weston/.syncthing";
   };
 
+  services.audiobookshelf = {
+    enable = true;
+    openFirewall = true;
+    port = 13378;
+    user = "weston";
+  };
+
+  services.caddy = {
+    enable = true;
+    virtualHosts."books.hanners.us".extraConfig = ''
+      reverse_proxy localhost:13378
+    '';
+  };
+
   services.plex = {
     enable = true;
     openFirewall = true;

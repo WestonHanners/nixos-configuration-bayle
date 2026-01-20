@@ -23,7 +23,7 @@
     nat.enable = true; # Allow plex through firewall.
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 32400 ];
+      allowedTCPPorts = [ 32400 80 443 ];
     };
   };
 
