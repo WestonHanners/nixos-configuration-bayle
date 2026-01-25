@@ -13,6 +13,7 @@
     ./specific/nvidia.nix
     ./specific/gaming.nix
     ./specific/obs.nix
+    ./specific/plex.nix
     ./specific/stylix.nix
     ./specific/gamescope.nix
   ];

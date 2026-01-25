@@ -162,13 +162,6 @@
     user = "weston";
   };
 
-  services.plex = {
-    enable = true;
-    openFirewall = true;
-    user = "weston";
-    dataDir = "/mnt/games/plexdata";
-  };
-
   services.pipewire = {
     enable = true;
     alsa.enable = true;

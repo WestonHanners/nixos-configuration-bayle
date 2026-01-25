@@ -26,6 +26,7 @@
   programs.swaylock.enable = true;
   programs.waybar.enable = true;
   programs.yt-dlp.enable = true;
+  programs.bat.enable = true;
 
   programs.beets = {
     enable = true;
