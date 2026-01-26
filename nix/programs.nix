@@ -64,6 +64,7 @@
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.hardware.openrgb.enable = true;
+  services.lact.enable = true;
 
   # Support VIA keyboards.
   services.udev.packages = with pkgs; [ via ]; 
