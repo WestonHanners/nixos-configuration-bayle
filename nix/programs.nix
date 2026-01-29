@@ -22,6 +22,7 @@
     pkgs.openrgb
     clang
     cargo
+    lutris
     strawberry
     pciutils
     pcmanfm
@@ -30,6 +31,7 @@
     libGLU
     xwayland-satellite
     vulkan-tools
+    rsgain
     snixembed
     via
     pkgs.dart
