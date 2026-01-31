@@ -11,13 +11,18 @@
     kdePackages.dolphin
     kdePackages.isoimagewriter
     kdePackages.partitionmanager
+    kdePackages.kdenlive
     kdePackages.plasma-workspace
     wayland-utils
+    qalculate-qt
     zenity
     wl-clipboard
     pkgs.mpv
     ghostty
     killall
+    gimp
+    alacritty
+    kitty
     nil    
     pkgs.openrgb
     clang
@@ -27,13 +32,11 @@
     pciutils
     pcmanfm
     helix
-    libxshmfence
-    libGLU
     xwayland-satellite
     vulkan-tools
     rsgain
     snixembed
-    via
+    waypaper
     pkgs.dart
     (pkgs.vivaldi.override { commandLineArgs = "--password-store=kwallet6"; })
     (pkgs.sddm-astronaut.override { embeddedTheme = "black_hole"; })
@@ -157,12 +160,6 @@
     virtualHosts."music.hanners.us".extraConfig = ''
       reverse_proxy localhost:4533
     '';
-  };
-
-  services.transmission = {
-    enable = true;
-    openFirewall = true;
-    user = "weston";
   };
 
   services.pipewire = {
